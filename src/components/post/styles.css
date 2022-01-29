@@ -1,0 +1,36 @@
+.post {
+  border: solid lightslategray 1px;
+  padding: 20px 10px;
+  border-radius: 5px;
+  background-color: lightyellow;
+}
+
+.post:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.post__votes {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.post__img {
+  height: 36px;
+  float: left;
+  margin-right: 10px;
+}
+
+.post__text {
+  float: left;
+}
+
+.post__url {
+  font-size: 20px;
+}
+
+.post a {
+  color: red;
+}
