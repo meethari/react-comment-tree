@@ -1,0 +1,23 @@
+.comment {
+  border: solid black 1px;
+  padding: 20px 10px;
+  border-radius: 5px;
+  background-color: lightgrey;
+  /* alternation color - darkgray ? */
+}
+
+.comment:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.comment__votes {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.comment__content {
+  float: left;
+}
