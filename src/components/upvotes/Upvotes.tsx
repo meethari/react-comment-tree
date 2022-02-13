@@ -1,10 +1,14 @@
 import React from "react";
 import "./styles.css";
 
-export default function Upvotes(): JSX.Element {
+interface UpvotesProps {
+  upvotes: number;
+}
+
+export default function Upvotes(props: UpvotesProps): JSX.Element {
   return (
     <div>
-      <span>72</span>
+      <span>{props.upvotes}</span>
     </div>
   );
 }

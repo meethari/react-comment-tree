@@ -7,7 +7,7 @@ export default function Post(): JSX.Element {
   return (
     <div className="post">
       <div className="post__upvotes">
-        <Upvotes />
+        <Upvotes upvotes={72} />
       </div>
       <img className="post__img" src={xboxImg} alt="Xbox"></img>
       <div className="post__text">
