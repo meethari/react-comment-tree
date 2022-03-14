@@ -3,6 +3,7 @@ import "./styles.css";
 import Upvotes from "../upvotes/Upvotes";
 import ReplyInput from "../reply-input/ReplyInput";
 import { CommentData } from "../../types";
+import CommentList from "../comment-list/CommentList";
 
 interface CommentProps {
   commentData: CommentData;
@@ -36,7 +37,9 @@ export default function Comment(props: CommentProps) {
             <ReplyInput />
           </div>
         )}
-        <div className="comment-list"></div>
+        <div className="comment-list">
+          <CommentList comments={props.commentData.children} />
+        </div>
       </div>
     </div>
   );

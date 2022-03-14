@@ -10,7 +10,23 @@ const dummyComment: CommentData = {
   message: "Hii",
   upvotes: 20,
   username: "Tizen",
-  children: [],
+  children: [
+    {
+      id: 2,
+      message: "Hello there",
+      upvotes: 42,
+      username: "Roger",
+      children: [
+        {
+          id: 3,
+          message: "Nice to meet you!",
+          upvotes: 12,
+          username: "Tizen",
+          children: [],
+        },
+      ],
+    },
+  ],
 };
 
 function App() {
