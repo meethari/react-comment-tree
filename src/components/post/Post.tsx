@@ -3,7 +3,7 @@ import "./styles.css";
 import xboxImg from "../../images/xbox.jpg";
 import Upvotes from "../upvotes/Upvotes";
 
-export default function Post(): JSX.Element {
+export const Post: React.FC<{}> = () => {
   return (
     <div className="post">
       <div className="post__upvotes">
@@ -31,4 +31,4 @@ export default function Post(): JSX.Element {
       </div>
     </div>
   );
-}
+};
