@@ -1,18 +1,18 @@
-import React from "react";
 import Comment from "../comment/Comment";
 import "./styles.css";
-import { CommentData } from "../../types";
 
 interface CommentListProps {
-  comments: Array<CommentData>;
+    commentIds: Array<string>;
 }
 
-export default function CommentList(props: CommentListProps): JSX.Element {
-  return (
-    <>
-      {props.comments.map((comment) => (
-        <Comment commentData={comment} />
-      ))}
-    </>
-  );
+export default function CommentList({
+    commentIds,
+}: CommentListProps): JSX.Element {
+    return (
+        <>
+            {commentIds.map((commentId) => (
+                <Comment commentId={commentId} />
+            ))}
+        </>
+    );
 }
