@@ -6,7 +6,7 @@ import { ICommentSource } from "../types/CommentSource";
 const defaultCommentDataManager = {
     getComment: (_id: string) => undefined,
     getTopLevelCommentIds: () => [],
-    addComment: (_comment: ICommentSource) => "",
+    addComment: (_comment: Omit<ICommentSource, "id">) => "",
     addUpvote: (_id: string) => {},
     updateChildren: (_id: string, _children: string[]) => {},
     deleteComment: (_id: string) => {},
@@ -19,7 +19,10 @@ export const CommentDataContext = createContext<ICommentDataManager>(
 export interface ICommentDataManager {
     getComment: (id: string) => ICommentSource | undefined;
     getTopLevelCommentIds: () => string[];
-    addComment: (comment: ICommentSource) => string;
+    addComment: (
+        comment: Omit<ICommentSource, "id">,
+        parentId?: string
+    ) => string;
     addUpvote: (id: string) => void;
     updateChildren: (id: string, children: string[]) => void;
     deleteComment: (id: string) => void;
