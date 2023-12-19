@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import { Post } from "./components/post/Post";
 import ReplyInput from "./components/reply-input/ReplyInput";
 import {
