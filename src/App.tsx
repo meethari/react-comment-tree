@@ -2,17 +2,11 @@ import React from "react";
 import "./App.css";
 import { Post } from "./components/post/Post";
 import ReplyInput from "./components/reply-input/ReplyInput";
-import { ICommentSource } from "./types/CommentSource";
-import CommentList from "./components/comment-list/CommentList";
 import {
     CommentDataContextProvider,
     IDefaultValue,
 } from "./context/CommentDataContext";
 import { TopLevelCommentList } from "./components/TopLevelCommentList";
-
-// const dummyComments: Array<ICommentSource> = [
-
-// ];
 
 const dummyComments: IDefaultValue = {
     commentStore: {

@@ -1,4 +1,4 @@
-import React, { useState, FunctionComponent, useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./styles.css";
 import Upvotes from "../upvotes/Upvotes";
 import ReplyInput from "../reply-input/ReplyInput";
@@ -25,6 +25,10 @@ export default function Comment({ commentId }: ICommentProps) {
         setReplyVisible(!replyVisible);
     };
 
+    const handleCloseReply = () => {
+        setReplyVisible(false);
+    };
+
     return (
         <div className="comment">
             <div className="comment__votes">
@@ -35,6 +39,9 @@ export default function Comment({ commentId }: ICommentProps) {
                     <a href="">{comment.username}</a>
                 </div>
                 <div className="comment__text">{comment.message}</div>
+                <div className="comment-list">
+                    <CommentList commentIds={comment.children} />
+                </div>
                 <div className="comment__links">
                     <a href="" onClick={replyToggleHandler}>
                         reply
@@ -42,12 +49,12 @@ export default function Comment({ commentId }: ICommentProps) {
                 </div>
                 {replyVisible && (
                     <div className="comment__reply">
-                        <ReplyInput />
+                        <ReplyInput
+                            parentCommentId={commentId}
+                            onReplySubmitted={handleCloseReply}
+                        />
                     </div>
                 )}
-                <div className="comment-list">
-                    <CommentList commentIds={comment.children} />
-                </div>
             </div>
         </div>
     );

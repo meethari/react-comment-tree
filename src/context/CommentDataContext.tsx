@@ -1,6 +1,5 @@
 import React, { createContext, useEffect, useMemo, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { compact } from "lodash";
 import { ICommentSource } from "../types/CommentSource";
 
 const defaultCommentDataManager = {
@@ -47,6 +46,8 @@ export const CommentDataContextProvider: React.FC<
     const [topLevelCommentIds, setTopLevelCommentIds] = useState<string[]>([]);
     const [commentStore, setCommentStore] = useState<ICommentStore>({});
 
+    console.log("commentStore", commentStore);
+
     useEffect(() => {
         setCommentStore(defaultValue.commentStore);
         setTopLevelCommentIds(defaultValue.topLevelCommentIds);
@@ -65,12 +66,13 @@ export const CommentDataContextProvider: React.FC<
                 parentId?: string
             ) => {
                 const uuid = uuidv4();
-                setCommentStore({
-                    ...commentStore,
-                    [uuid]: { ...comment, id: uuid },
-                });
+                console.log("addComment", uuid);
 
                 if (parentId == null) {
+                    setCommentStore({
+                        ...commentStore,
+                        [uuid]: { ...comment, id: uuid },
+                    });
                     setTopLevelCommentIds([...topLevelCommentIds, uuid]);
                     return uuid;
                 }
@@ -79,7 +81,14 @@ export const CommentDataContextProvider: React.FC<
                 if (parentComment == null) {
                     throw new Error(`parent ${parentId} doesn't exist`);
                 }
-                // updateChildren on this
+                setCommentStore({
+                    ...commentStore,
+                    [uuid]: { ...comment, id: uuid },
+                    [parentId]: {
+                        ...parentComment,
+                        children: [...parentComment.children, uuid],
+                    },
+                });
 
                 return uuid;
             },

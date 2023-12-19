@@ -2,7 +2,16 @@ import React, { useCallback, useContext, useState } from "react";
 import "./styles.css";
 import { CommentDataContext } from "../../context/CommentDataContext";
 
-export default function ReplyInput(): JSX.Element {
+interface IProps {
+    // if this prop is not provided, the reply is submitted as a top level comment
+    parentCommentId?: string;
+    onReplySubmitted?: () => void;
+}
+
+const ReplyInput: React.FC<IProps> = ({
+    parentCommentId,
+    onReplySubmitted,
+}) => {
     const commentDataManager = useContext(CommentDataContext);
 
     const [replyText, setReplyText] = useState("");
@@ -15,14 +24,17 @@ export default function ReplyInput(): JSX.Element {
     );
 
     const handleSubmitReply = useCallback(() => {
-        console.log("reply submitting");
-        commentDataManager.addComment({
-            message: replyText,
-            upvotes: 0,
-            username: "dummy_user",
-            children: [],
-        });
-    }, [commentDataManager, replyText]);
+        commentDataManager.addComment(
+            {
+                message: replyText,
+                upvotes: 0,
+                username: "admin",
+                children: [],
+            },
+            parentCommentId
+        );
+        onReplySubmitted?.();
+    }, [commentDataManager, onReplySubmitted, parentCommentId, replyText]);
 
     return (
         <div className="reply">
@@ -39,4 +51,6 @@ export default function ReplyInput(): JSX.Element {
             </button>
         </div>
     );
-}
+};
+
+export default ReplyInput;
