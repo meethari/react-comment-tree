@@ -11,7 +11,7 @@ export default function CommentList({
     return (
         <>
             {commentIds.map((commentId) => (
-                <Comment commentId={commentId} />
+                <Comment commentId={commentId} key={commentId} />
             ))}
         </>
     );

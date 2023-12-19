@@ -67,7 +67,7 @@ export const CommentDataContextProvider: React.FC<
                 const uuid = uuidv4();
                 setCommentStore({
                     ...commentStore,
-                    uuid: { ...comment, id: uuid },
+                    [uuid]: { ...comment, id: uuid },
                 });
 
                 if (parentId == null) {
