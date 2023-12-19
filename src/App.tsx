@@ -1,6 +1,6 @@
 import React from "react";
-import { Post } from "./components/post/Post";
-import ReplyInput from "./components/reply-input/ReplyInput";
+import { Post } from "./components/Post";
+import ReplyInput from "./components/ReplyInput";
 import {
     CommentDataContextProvider,
     IDefaultValue,

@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
-import "./styles.css";
-import Upvotes from "../upvotes/Upvotes";
-import ReplyInput from "../reply-input/ReplyInput";
-import CommentList from "../comment-list/CommentList";
-import { CommentDataContext } from "../../context/CommentDataContext";
+import "./Comment.css";
+import Upvotes from "./Upvotes";
+import ReplyInput from "./ReplyInput";
+import CommentList from "./CommentList";
+import { CommentDataContext } from "../context/CommentDataContext";
 
 interface ICommentProps {
     commentId: string;

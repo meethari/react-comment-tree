@@ -1,5 +1,4 @@
-import Comment from "../comment/Comment";
-import "./styles.css";
+import Comment from "./Comment";
 
 interface CommentListProps {
     commentIds: Array<string>;

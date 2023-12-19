@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useState } from "react";
-import "./styles.css";
-import { CommentDataContext } from "../../context/CommentDataContext";
+import "./ReplyInput.css";
+import { CommentDataContext } from "../context/CommentDataContext";
 
 interface IProps {
     // if this prop is not provided, the reply is submitted as a top level comment
