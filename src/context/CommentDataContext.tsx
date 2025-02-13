@@ -101,7 +101,7 @@ export const CommentDataContextProvider: React.FC<
                     ...commentSource,
                     upvotes: commentSource.upvotes + 1,
                 };
-                setCommentStore({ ...commentStore, id: updatedCommentSource });
+                setCommentStore({ ...commentStore, [id]: updatedCommentSource });
             },
             updateChildren: (id: string, children: string[]) => {
                 const currentCommentSource = commentStore[id];
@@ -110,14 +110,14 @@ export const CommentDataContextProvider: React.FC<
                 }
                 setCommentStore({
                     ...commentStore,
-                    id: {
+                    [id]: {
                         ...currentCommentSource,
                         children,
                     },
                 });
             },
             deleteComment: (id: string) => {
-                setCommentStore({ ...commentStore, id: undefined });
+                setCommentStore({ ...commentStore, [id]: undefined });
             },
         }),
         [
